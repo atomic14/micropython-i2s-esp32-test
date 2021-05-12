@@ -4,9 +4,9 @@
 
 A quick demo of this [PR]() that adds support for I2S to MicroPython.
 
-You can watch a video of this in action [here](https://youtu.be/0XgwiG0McUk)
+You can watch a video of this in action [here](https://youtu.be/UXt27kOokh0)
 
-[![Demo Video](https://img.youtube.com/vi/0XgwiG0McUk/0.jpg)](https://www.youtube.com/watch?v=0XgwiG0McUk)
+[![Demo Video](https://img.youtube.com/vi/UXt27kOokh0/0.jpg)](https://www.youtube.com/watch?v=UXt27kOokh0)
 
 I2S is not yet officially supported, but there is a Pull Request on GitHub that adds it in.
 

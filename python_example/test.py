@@ -3,11 +3,13 @@ from machine import Pin
 
 record_pin = Pin(23, Pin.IN, Pin.PULL_DOWN)
 
+
 def wait_for_button():
     while record_pin.value() == 0:
         time.sleep_ms(100)
     time.sleep_ms(100)
-    
+
+
 mic_sck_pin = Pin(26)
 mic_ws_pin = Pin(22)
 mic_sd_pin = Pin(21)
@@ -24,9 +26,9 @@ audio_in = I2S(
     bufferlen=8192,
 )
 
-spk_bck_pin = Pin(19)   # Bit clock output
-spk_ws_pin = Pin(27)    # Word clock output
-spk_sdout_pin = Pin(18) # Serial data output
+spk_bck_pin = Pin(19)
+spk_ws_pin = Pin(27)
+spk_sdout_pin = Pin(18)
 
 audio_out = I2S(
     1,
@@ -36,7 +38,7 @@ audio_out = I2S(
     mode=I2S.TX,
     bits=16,
     format=I2S.MONO,
-    rate=16000, 
+    rate=16000,
     bufferlen=8192,
 )
 
@@ -54,7 +56,7 @@ with open("test.raw", "wb") as file:
         # amplify the signal to make it more audible
         I2S.shift(buf=samples, bits=16, shift=4)
         file.write(samples[:read_bytes])
-    
+
 print("Finished Recording")
 
 print("Processing data")
@@ -68,5 +70,5 @@ with open("test.raw", "rb") as file:
     while samples_read > 0:
         audio_out.write(samples[:samples_read])
         samples_read = file.readinto(samples)
-    
+
 print("Finished playback")

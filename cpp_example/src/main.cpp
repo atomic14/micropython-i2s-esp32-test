@@ -1,5 +1,4 @@
 #include <Arduino.h>
-#include <FreeRTOS.h>
 #include <SPIFFS.h>
 #include "driver/i2s.h"
 
@@ -83,9 +82,9 @@ void wait_for_button()
 {
   while (digitalRead(RECORD_PIN) == 0)
   {
-    vTaskDelay(100);
+    delay(100);
   }
-  vTaskDelay(100);
+  delay(100);
 }
 
 static int16_t samples[1024];
